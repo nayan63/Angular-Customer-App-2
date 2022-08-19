@@ -1,0 +1,52 @@
+
+<div class="add-user-form">
+    <h1>Add User</h1>
+    <form class="example-form" [formGroup]="userForm" (ngSubmit)="addUser()">
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>NAME</mat-label>
+                <input matInput placeholder="Only alphabet are allowed" formControlName="name">
+                <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+                <mat-hint *ngIf="name && name.invalid && name.touched" class="form-error">Only alphabet are allowed</mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>AGE</mat-label>
+                <input matInput placeholder="Enter Age" formControlName="age">
+                <mat-icon matSuffix>format_list_numbered</mat-icon>
+                <mat-hint *ngIf="age && age.invalid && age.touched" class="form-error">Only number allowed</mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <label id="example-radio-group-label">GENDER</label>
+            <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group" formControlName="gender">
+                <mat-radio-button value="Male"  class="example-radio-button">
+                    Male
+                </mat-radio-button>
+                <mat-radio-button value="Female" class="example-radio-button">
+                    Female
+                </mat-radio-button>
+            </mat-radio-group>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>HOBBIES</mat-label>
+                <input matInput placeholder="Enter Hobbies" formControlName="hobbies">
+                <mat-icon matSuffix>library_add</mat-icon>
+                <mat-hint *ngIf="hobbies && hobbies.invalid && hobbies.touched" class="form-error">Please Enter Hobbies</mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <mat-form-field appearance="outline">
+                <mat-label>ADDRESS</mat-label>
+                <textarea formControlName="address" matInput placeholder="....."></textarea>
+                <mat-icon matSuffix>notes</mat-icon>
+                <mat-hint *ngIf="address &&address.invalid && address.touched">Please Enter Address</mat-hint>
+            </mat-form-field>
+        </p>
+        <p>
+            <button mat-raised-button color="accent" [disabled]="userForm.invalid">SUBMIT</button>
+        </p>
+    </form>
+</div>
